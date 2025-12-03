@@ -57,7 +57,7 @@ export default function TextForm(props) {
 
         <div className="mb-3">
           <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"
-          style={{ backgroundColor: props.mode === 'dark'? 'gray' : 'white', color: props.mode === 'dark'? 'white' : 'black' }}>
+          style={{ backgroundColor: props.mode === 'dark'? 'gray' : 'white',  color: props.mode === "dark" && color === "black" ? "white" : color }}>
           </textarea>
 
         </div>
@@ -79,7 +79,10 @@ export default function TextForm(props) {
         </p>
         <p>{0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text.length > 0 ? text : "Enter something to preview here!"}</p>
+        <p style={{
+          color: props.mode === "dark" && color === "black" ? "white" : color
+          }}>{text.length > 0 ? text : "Enter something to preview here!"}
+        </p>
       </div>
     </>
   );
